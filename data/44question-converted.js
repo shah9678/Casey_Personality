@@ -7,11 +7,11 @@ export const story = {
       imagePrompt:
         "An illustration of a vibrant marketplace with colorful stalls, people chatting animatedly, and a street performer drawing a crowd.",
       answers: [
-        "Disagree strongly: Keep to yourself, avoiding interaction.",
-        "Disagree a little: Speak only when spoken to.",
-        "Neither agree nor disagree: Engage in small talk when necessary.",
-        "Agree a little: Chat with a few people.",
-        "Agree strongly: Talk to everyone enthusiastically.",
+        "Keep to yourself, avoiding interaction. - Disagree strongly",
+        "Speak only when spoken to. - Disagree a little",
+        "Engage in small talk when necessary. - Neither agree nor disagree",
+        "Chat with a few people. - Agree a little",
+        "Talk to everyone enthusiastically. - Agree strongly",
       ],
     },
     {
@@ -21,11 +21,11 @@ export const story = {
       imagePrompt:
         "A scene in a marketplace where a merchant is speaking to a customer with a frustrated expression.",
       answers: [
-        "Disagree strongly: Ignore the complaint and move on.",
-        "Disagree a little: Listen but don't comment.",
-        "Neither agree nor disagree: Nod politely.",
-        "Agree a little: Agree with the merchant’s points.",
-        "Agree strongly: Point out additional faults you've noticed.",
+        "Ignore the complaint and move on. - Disagree strongly",
+        "Listen but don't comment. - Disagree a little",
+        "Nod politely. - Neither agree nor disagree",
+        "Agree with the merchant’s points. - Agree a little",
+        "Point out additional faults you've noticed. - Agree strongly",
       ],
     },
     {
@@ -35,11 +35,11 @@ export const story = {
       imagePrompt:
         "A vendor stall with various items scattered around, and a person carefully organizing them.",
       answers: [
-        "Disagree strongly: Do the minimum necessary.",
-        "Disagree a little: Help but not very thoroughly.",
-        "Neither agree nor disagree: Do an average job.",
-        "Agree a little: Organize everything well.",
-        "Agree strongly: Ensure every detail is perfect.",
+        "Do the minimum necessary. - Disagree strongly",
+        "Help but not very thoroughly. - Disagree a little",
+        "Do an average job. - Neither agree nor disagree",
+        "Organize everything well. - Agree a little",
+        "Ensure every detail is perfect. - Agree strongly",
       ],
     },
     {
@@ -48,11 +48,11 @@ export const story = {
       imagePrompt:
         "A quiet corner of a marketplace where a person is sitting alone, looking sad.",
       answers: [
-        "Disagree strongly: Feel unaffected.",
-        "Disagree a little: Feel a bit concerned.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Feel slightly down as well.",
-        "Agree strongly: Share in their sadness deeply.",
+        "Feel unaffected. - Disagree strongly",
+        "Feel a bit concerned. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Feel slightly down as well. - Agree a little",
+        "Share in their sadness deeply. - Agree strongly",
       ],
     },
     {
@@ -62,11 +62,11 @@ export const story = {
       imagePrompt:
         "An antique book with mysterious symbols lying on an old wooden table.",
       answers: [
-        "Disagree strongly: Ignore the book.",
-        "Disagree a little: Glance through it briefly.",
-        "Neither agree nor disagree: Read a few pages out of curiosity.",
-        "Agree a little: Spend some time exploring its contents.",
-        "Agree strongly: Dive deeply into studying the book.",
+        "Ignore the book. - Disagree strongly",
+        "Glance through it briefly. - Disagree a little",
+        "Read a few pages out of curiosity. - Neither agree nor disagree",
+        "Spend some time exploring its contents. - Agree a little",
+        "Dive deeply into studying the book. - Agree strongly",
       ],
     },
     {
@@ -76,11 +76,11 @@ export const story = {
       imagePrompt:
         "A group of people animatedly discussing something, with varied expressions and gestures.",
       answers: [
-        "Disagree strongly: Stay away from the debate.",
-        "Disagree a little: Listen without participating.",
-        "Neither agree nor disagree: Observe quietly.",
-        "Agree a little: Join the debate with some comments.",
-        "Agree strongly: Actively participate and share your views.",
+        "Stay away from the debate. - Disagree strongly",
+        "Listen without participating. - Disagree a little",
+        "Observe quietly. - Neither agree nor disagree",
+        "Join the debate with some comments. - Agree a little",
+        "Actively participate and share your views. - Agree strongly",
       ],
     },
     {
@@ -89,11 +89,11 @@ export const story = {
       imagePrompt:
         "A child looking sad with fruit scattered on the ground, and someone bending down to help.",
       answers: [
-        "Disagree strongly: Ignore the child.",
-        "Disagree a little: Look on but don't help.",
-        "Neither agree nor disagree: Feel concerned but not act.",
-        "Agree a little: Offer some help.",
-        "Agree strongly: Immediately assist and comfort the child.",
+        "Ignore the child. - Disagree strongly",
+        "Look on but don't help. - Disagree a little",
+        "Feel concerned but not act. - Neither agree nor disagree",
+        "Offer some help. - Agree a little",
+        "Immediately assist and comfort the child. - Agree strongly",
       ],
     },
     {
@@ -102,11 +102,11 @@ export const story = {
         "You see someone struggling with their purchases. What do you do?",
       imagePrompt: "A person carrying too many bags and looking overwhelmed.",
       answers: [
-        "Disagree strongly: Walk past them.",
-        "Disagree a little: Feel bad but don't help.",
-        "Neither agree nor disagree: Consider helping but hesitate.",
-        "Agree a little: Offer some assistance.",
-        "Agree strongly: Go out of your way to help them.",
+        "Walk past them. - Disagree strongly",
+        "Feel bad but don't help. - Disagree a little",
+        "Consider helping but hesitate. - Neither agree nor disagree",
+        "Offer some assistance. - Agree a little",
+        "Go out of your way to help them. - Agree strongly",
       ],
     },
     {
@@ -116,11 +116,11 @@ export const story = {
       imagePrompt:
         "A serene park bench under a tree with soft sunlight filtering through the leaves.",
       answers: [
-        "Disagree strongly: Feel tense and unable to relax.",
-        "Disagree a little: Have trouble unwinding.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Relax and feel at ease.",
-        "Agree strongly: Feel completely relaxed and stress-free.",
+        "Feel tense and unable to relax. - Disagree strongly",
+        "Have trouble unwinding. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Relax and feel at ease. - Agree a little",
+        "Feel completely relaxed and stress-free. - Agree strongly",
       ],
     },
     {
@@ -130,11 +130,11 @@ export const story = {
       imagePrompt:
         "A stall with an array of unique and exotic items, each from different parts of the world.",
       answers: [
-        "Disagree strongly: Walk past without interest.",
-        "Disagree a little: Glance at the items briefly.",
-        "Neither agree nor disagree: Look at a few items.",
-        "Agree a little: Explore the stall with interest.",
-        "Agree strongly: Examine every item with great curiosity.",
+        "Walk past without interest. - Disagree strongly",
+        "Glance at the items briefly. - Disagree a little",
+        "Look at a few items. - Neither agree nor disagree",
+        "Explore the stall with interest. - Agree a little",
+        "Examine every item with great curiosity. - Agree strongly",
       ],
     },
     {
@@ -144,11 +144,11 @@ export const story = {
       imagePrompt:
         "A person standing at the exit of the marketplace, looking energetic and enthusiastic.",
       answers: [
-        "Disagree strongly: Feel tired and ready to go.",
-        "Disagree a little: Feel a bit of energy but not much.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Share some of your energy with others.",
-        "Agree strongly: Talk excitedly with everyone around.",
+        "Feel tired and ready to go. - Disagree strongly",
+        "Feel a bit of energy but not much. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Share some of your energy with others. - Agree a little",
+        "Talk excitedly with everyone around. - Agree strongly",
       ],
     },
     {
@@ -157,11 +157,11 @@ export const story = {
       imagePrompt:
         "Two people in a crowded market, one looking apologetic after a bump.",
       answers: [
-        "Disagree strongly: Ignore them and walk away.",
-        "Disagree a little: Apologize briefly.",
-        "Neither agree nor disagree: Nod and move on.",
-        "Agree a little: Apologize and ask if they're okay.",
-        "Agree strongly: Profusely apologize and engage in conversation.",
+        "Ignore them and walk away. - Disagree strongly",
+        "Apologize briefly. - Disagree a little",
+        "Nod and move on. - Neither agree nor disagree",
+        "Apologize and ask if they're okay. - Agree a little",
+        "Profusely apologize and engage in conversation. - Agree strongly",
       ],
     },
     {
@@ -171,11 +171,11 @@ export const story = {
       imagePrompt:
         "A person meticulously sweeping and tidying up a marketplace after hours.",
       answers: [
-        "Disagree strongly: Do the bare minimum.",
-        "Disagree a little: Clean up a little bit.",
-        "Neither agree nor disagree: Do an average job.",
-        "Agree a little: Make sure things are quite tidy.",
-        "Agree strongly: Ensure everything is spotless and organized.",
+        "Do the bare minimum. - Disagree strongly",
+        "Clean up a little bit. - Disagree a little",
+        "Do an average job. - Neither agree nor disagree",
+        "Make sure things are quite tidy. - Agree a little",
+        "Ensure everything is spotless and organized. - Agree strongly",
       ],
     },
     {
@@ -183,11 +183,11 @@ export const story = {
       scenario: "You reflect on the day's events. How do you feel?",
       imagePrompt: "A person sitting quietly at home, deep in thought.",
       answers: [
-        "Disagree strongly: Feel content and happy.",
-        "Disagree a little: Feel a bit down.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Feel somewhat tense.",
-        "Agree strongly: Feel very tense and worried.",
+        "Feel content and happy. - Disagree strongly",
+        "Feel a bit down. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Feel somewhat tense. - Agree a little",
+        "Feel very tense and worried. - Agree strongly",
       ],
     },
     {
@@ -195,11 +195,11 @@ export const story = {
       scenario: "In a quiet moment, you ponder about life. What do you do?",
       imagePrompt: "A person sitting under a tree, looking contemplative.",
       answers: [
-        "Disagree strongly: Think about simple, everyday things.",
-        "Disagree a little: Have brief, shallow thoughts.",
-        "Neither agree nor disagree: Ponder a little.",
-        "Agree a little: Have some deep thoughts.",
-        "Agree strongly: Engage in profound, deep thinking.",
+        "Think about simple, everyday things. - Disagree strongly",
+        "Have brief, shallow thoughts. - Disagree a little",
+        "Ponder a little. - Neither agree nor disagree",
+        "Have some deep thoughts. - Agree a little",
+        "Engage in profound, deep thinking. - Agree strongly",
       ],
     },
     {
@@ -209,11 +209,11 @@ export const story = {
       imagePrompt:
         "A person energetically planning an event with a group of people.",
       answers: [
-        "Disagree strongly: Plan it quietly without much fuss.",
-        "Disagree a little: Plan it with some enthusiasm.",
-        "Neither agree nor disagree: Feel neutral about it.",
-        "Agree a little: Plan it with good energy.",
-        "Agree strongly: Generate a lot of excitement and enthusiasm.",
+        "Plan it quietly without much fuss. - Disagree strongly",
+        "Plan it with some enthusiasm. - Disagree a little",
+        "Feel neutral about it. - Neither agree nor disagree",
+        "Plan it with good energy. - Agree a little",
+        "Generate a lot of excitement and enthusiasm. - Agree strongly",
       ],
     },
     {
@@ -223,11 +223,11 @@ export const story = {
       imagePrompt:
         "A person looking surprised as another accidentally spills a drink on them.",
       answers: [
-        "Disagree strongly: Get angry and hold a grudge.",
-        "Disagree a little: Feel upset but let it go.",
-        "Neither agree nor disagree: Feel neutral about it.",
-        "Agree a little: Forgive them easily.",
-        "Agree strongly: Laugh it off and reassure them it's okay.",
+        "Get angry and hold a grudge. - Disagree strongly",
+        "Feel upset but let it go. - Disagree a little",
+        "Feel neutral about it. - Neither agree nor disagree",
+        "Forgive them easily. - Agree a little",
+        "Laugh it off and reassure them it's okay. - Agree strongly",
       ],
     },
     {
@@ -237,11 +237,11 @@ export const story = {
       imagePrompt:
         "A person looking at a chaotic desk filled with event planning materials.",
       answers: [
-        "Disagree strongly: Feel completely disorganized.",
-        "Disagree a little: Struggle a bit with organization.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Manage to keep things somewhat in order.",
-        "Agree strongly: Stay perfectly organized despite the challenges.",
+        "Feel completely disorganized. - Disagree strongly",
+        "Struggle a bit with organization. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Manage to keep things somewhat in order. - Agree a little",
+        "Stay perfectly organized despite the challenges. - Agree strongly",
       ],
     },
     {
@@ -250,11 +250,11 @@ export const story = {
         "As the event approaches, you start to feel anxious. How do you cope?",
       imagePrompt: "A person looking nervous while preparing for an event.",
       answers: [
-        "Disagree strongly: Stay calm and collected.",
-        "Disagree a little: Feel a bit anxious but manage it.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Worry a bit about the event.",
-        "Agree strongly: Feel very anxious and stressed.",
+        "Stay calm and collected. - Disagree strongly",
+        "Feel a bit anxious but manage it. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Worry a bit about the event. - Agree a little",
+        "Feel very anxious and stressed. - Agree strongly",
       ],
     },
     {
@@ -264,11 +264,11 @@ export const story = {
       imagePrompt:
         "A person gratefully accepting help from a friend while preparing for an event.",
       answers: [
-        "Disagree strongly: Refuse their help, wanting to do it all yourself.",
-        "Disagree a little: Hesitate but accept some help.",
-        "Neither agree nor disagree: Feel neutral about it.",
-        "Agree a little: Accept their help gladly.",
-        "Agree strongly: Eagerly accept and feel relieved.",
+        "Refuse their help, wanting to do it all yourself. - Disagree strongly",
+        "Hesitate but accept some help. - Disagree a little",
+        "Feel neutral about it. - Neither agree nor disagree",
+        "Accept their help gladly. - Agree a little",
+        "Eagerly accept and feel relieved. - Agree strongly",
       ],
     },
     {
@@ -277,11 +277,11 @@ export const story = {
         "On the day of the event, you need to address the audience. How do you feel?",
       imagePrompt: "A person confidently speaking to a crowd at an event.",
       answers: [
-        "Disagree strongly: Feel very unsure and hesitant.",
-        "Disagree a little: Feel a bit nervous but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Speak with some confidence.",
-        "Agree strongly: Feel completely confident and assertive.",
+        "Feel very unsure and hesitant. - Disagree strongly",
+        "Feel a bit nervous but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Speak with some confidence. - Agree a little",
+        "Feel completely confident and assertive. - Agree strongly",
       ],
     },
     {
@@ -291,11 +291,11 @@ export const story = {
       imagePrompt:
         "A person trying to engage with someone who appears distant.",
       answers: [
-        "Disagree strongly: Respond coldly in return.",
-        "Disagree a little: Feel a bit put off but stay polite.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Try to engage them gently.",
-        "Agree strongly: Actively try to warm up to them.",
+        "Respond coldly in return. - Disagree strongly",
+        "Feel a bit put off but stay polite. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Try to engage them gently. - Agree a little",
+        "Actively try to warm up to them. - Agree strongly",
       ],
     },
     {
@@ -304,11 +304,11 @@ export const story = {
         "As the event ends, you ensure everything is wrapped up. How diligent are you?",
       imagePrompt: "A person meticulously cleaning up after an event.",
       answers: [
-        "Disagree strongly: Leave things incomplete.",
-        "Disagree a little: Do a minimal cleanup.",
-        "Neither agree nor disagree: Do an average job.",
-        "Agree a little: Make sure most things are done.",
-        "Agree strongly: Ensure everything is perfectly finished.",
+        "Leave things incomplete. - Disagree strongly",
+        "Do a minimal cleanup. - Disagree a little",
+        "Do an average job. - Neither agree nor disagree",
+        "Make sure most things are done. - Agree a little",
+        "Ensure everything is perfectly finished. - Agree strongly",
       ],
     },
     {
@@ -317,11 +317,11 @@ export const story = {
       imagePrompt:
         "A person sitting quietly, reflecting on the day's activities.",
       answers: [
-        "Disagree strongly: Feel very upset and moody.",
-        "Disagree a little: Feel a bit moody.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Feel somewhat calm.",
-        "Agree strongly: Feel very relaxed and content.",
+        "Feel very upset and moody. - Disagree strongly",
+        "Feel a bit moody. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Feel somewhat calm. - Agree a little",
+        "Feel very relaxed and content. - Agree strongly",
       ],
     },
     {
@@ -331,11 +331,11 @@ export const story = {
       imagePrompt:
         "A person admiring a stunning piece of artwork displayed prominently.",
       answers: [
-        "Disagree strongly: Feel completely indifferent.",
-        "Disagree a little: Glance at it briefly.",
-        "Neither agree nor disagree: Appreciate it a little.",
-        "Agree a little: Spend some time admiring it.",
-        "Agree strongly: Feel deeply moved and inspired by it.",
+        "Feel completely indifferent. - Disagree strongly",
+        "Glance at it briefly. - Disagree a little",
+        "Appreciate it a little. - Neither agree nor disagree",
+        "Spend some time admiring it. - Agree a little",
+        "Feel deeply moved and inspired by it. - Agree strongly",
       ],
     },
     {
@@ -345,11 +345,11 @@ export const story = {
       imagePrompt:
         "A person sitting alone in a cozy room, enjoying some quiet time.",
       answers: [
-        "Disagree strongly: Feel very sociable and want company.",
-        "Disagree a little: Feel a bit lonely but okay.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Enjoy the solitude.",
-        "Agree strongly: Feel completely at peace and happy alone.",
+        "Feel very sociable and want company. - Disagree strongly",
+        "Feel a bit lonely but okay. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Enjoy the solitude. - Agree a little",
+        "Feel completely at peace and happy alone. - Agree strongly",
       ],
     },
     {
@@ -359,11 +359,11 @@ export const story = {
       imagePrompt:
         "A person gently speaking to another who looks sad, offering comfort.",
       answers: [
-        "Disagree strongly: Feel indifferent and avoid engaging.",
-        "Disagree a little: Feel a bit reluctant but say something kind.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Offer some comforting words.",
-        "Agree strongly: Go out of your way to comfort them.",
+        "Feel indifferent and avoid engaging. - Disagree strongly",
+        "Feel a bit reluctant but say something kind. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Offer some comforting words. - Agree a little",
+        "Go out of your way to comfort them. - Agree strongly",
       ],
     },
     {
@@ -372,11 +372,11 @@ export const story = {
       imagePrompt:
         "A person efficiently organizing and cleaning up after an event.",
       answers: [
-        "Disagree strongly: Take your time without much efficiency.",
-        "Disagree a little: Clean up slowly but get it done.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Clean up efficiently.",
-        "Agree strongly: Ensure everything is done quickly and perfectly.",
+        "Take your time without much efficiency. - Disagree strongly",
+        "Clean up slowly but get it done. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Clean up efficiently. - Agree a little",
+        "Ensure everything is done quickly and perfectly. - Agree strongly",
       ],
     },
     {
@@ -384,11 +384,11 @@ export const story = {
       scenario: "A tense situation arises. How do you handle it?",
       imagePrompt: "A person calmly addressing a tense and chaotic scene.",
       answers: [
-        "Disagree strongly: Feel very flustered and upset.",
-        "Disagree a little: Feel a bit tense but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Stay somewhat calm.",
-        "Agree strongly: Remain completely composed and calm.",
+        "Feel very flustered and upset. - Disagree strongly",
+        "Feel a bit tense but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Stay somewhat calm. - Agree a little",
+        "Remain completely composed and calm. - Agree strongly",
       ],
     },
     {
@@ -398,11 +398,11 @@ export const story = {
       imagePrompt:
         "A person working steadily on a routine task in a calm environment.",
       answers: [
-        "Disagree strongly: Dislike routine work.",
-        "Disagree a little: Feel a bit bored by routine.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Enjoy some routine.",
-        "Agree strongly: Prefer routine and predictability.",
+        "Dislike routine work. - Disagree strongly",
+        "Feel a bit bored by routine. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Enjoy some routine. - Agree a little",
+        "Prefer routine and predictability. - Agree strongly",
       ],
     },
     {
@@ -412,11 +412,11 @@ export const story = {
       imagePrompt:
         "A person sitting quietly in a peaceful setting, thinking about social interactions.",
       answers: [
-        "Disagree strongly: Feel very sociable and outgoing.",
-        "Disagree a little: Feel a bit shy but can manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Prefer some solitude.",
-        "Agree strongly: Feel very shy and inhibited.",
+        "Feel very sociable and outgoing. - Disagree strongly",
+        "Feel a bit shy but can manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Prefer some solitude. - Agree a little",
+        "Feel very shy and inhibited. - Agree strongly",
       ],
     },
     {
@@ -424,11 +424,11 @@ export const story = {
       scenario: "You encounter someone who is rude to you. How do you respond?",
       imagePrompt: "A person looking upset after being rudely spoken to.",
       answers: [
-        "Disagree strongly: Respond rudely in return.",
-        "Disagree a little: Feel annoyed but stay polite.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Keep your composure.",
-        "Agree strongly: Respond kindly despite the rudeness.",
+        "Respond rudely in return. - Disagree strongly",
+        "Feel annoyed but stay polite. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Keep your composure. - Agree a little",
+        "Respond kindly despite the rudeness. - Agree strongly",
       ],
     },
     {
@@ -437,11 +437,11 @@ export const story = {
       imagePrompt:
         "A person carefully writing down plans and ideas in a notebook.",
       answers: [
-        "Disagree strongly: Leave things to chance.",
-        "Disagree a little: Make loose plans without much detail.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Create some plans and follow through.",
-        "Agree strongly: Make detailed plans and ensure they are followed.",
+        "Leave things to chance. - Disagree strongly",
+        "Make loose plans without much detail. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Create some plans and follow through. - Agree a little",
+        "Make detailed plans and ensure they are followed. - Agree strongly",
       ],
     },
     {
@@ -451,11 +451,11 @@ export const story = {
       imagePrompt:
         "A person lying in bed, looking thoughtful and a bit worried.",
       answers: [
-        "Disagree strongly: Feel completely calm.",
-        "Disagree a little: Feel slightly worried but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Worry a bit about the future.",
-        "Agree strongly: Feel very anxious and stressed.",
+        "Feel completely calm. - Disagree strongly",
+        "Feel slightly worried but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Worry a bit about the future. - Agree a little",
+        "Feel very anxious and stressed. - Agree strongly",
       ],
     },
     {
@@ -463,11 +463,11 @@ export const story = {
       scenario: "Lying in bed, you reflect on your day. How do you feel?",
       imagePrompt: "A person lying in bed, deep in thought about their day.",
       answers: [
-        "Disagree strongly: Feel content and happy.",
-        "Disagree a little: Feel a bit discontent.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Feel somewhat moody.",
-        "Agree strongly: Feel very moody and dissatisfied.",
+        "Feel content and happy. - Disagree strongly",
+        "Feel a bit discontent. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Feel somewhat moody. - Agree a little",
+        "Feel very moody and dissatisfied. - Agree strongly",
       ],
     },
     {
@@ -476,11 +476,11 @@ export const story = {
       imagePrompt:
         "A person sitting up in bed with a look of excitement, grabbing a notebook to jot down ideas.",
       answers: [
-        "Disagree strongly: Ignore the inspiration and go back to sleep.",
-        "Disagree a little: Think about it briefly but don’t act.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Write down some thoughts.",
-        "Agree strongly: Dive into exploring the new ideas.",
+        "Ignore the inspiration and go back to sleep. - Disagree strongly",
+        "Think about it briefly but don’t act. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Write down some thoughts. - Agree a little",
+        "Dive into exploring the new ideas. - Agree strongly",
       ],
     },
     {
@@ -490,11 +490,11 @@ export const story = {
       imagePrompt:
         "A person slowly waking up, enjoying the morning light streaming through the window.",
       answers: [
-        "Disagree strongly: Feel very rushed and hurried.",
-        "Disagree a little: Feel a bit rushed but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Take your time to wake up.",
-        "Agree strongly: Enjoy a leisurely, calm morning.",
+        "Feel very rushed and hurried. - Disagree strongly",
+        "Feel a bit rushed but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Take your time to wake up. - Agree a little",
+        "Enjoy a leisurely, calm morning. - Agree strongly",
       ],
     },
     {
@@ -503,11 +503,11 @@ export const story = {
       imagePrompt:
         "A person diligently working on a new project at a tidy desk.",
       answers: [
-        "Disagree strongly: Feel very unmotivated and distracted.",
-        "Disagree a little: Feel a bit distracted but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Work steadily with some focus.",
-        "Agree strongly: Stay completely focused and efficient.",
+        "Feel very unmotivated and distracted. - Disagree strongly",
+        "Feel a bit distracted but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Work steadily with some focus. - Agree a little",
+        "Stay completely focused and efficient. - Agree strongly",
       ],
     },
     {
@@ -517,11 +517,11 @@ export const story = {
       imagePrompt:
         "A person calmly handling multiple tasks and challenges at once.",
       answers: [
-        "Disagree strongly: Feel very overwhelmed and stressed.",
-        "Disagree a little: Feel a bit stressed but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Stay somewhat calm.",
-        "Agree strongly: Remain completely composed and handle everything smoothly.",
+        "Feel very overwhelmed and stressed. - Disagree strongly",
+        "Feel a bit stressed but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Stay somewhat calm. - Agree a little",
+        "Remain completely composed and handle everything smoothly. - Agree strongly",
       ],
     },
     {
@@ -531,11 +531,11 @@ export const story = {
       imagePrompt:
         "A person sitting at a window, lost in thought and daydreaming.",
       answers: [
-        "Disagree strongly: Rarely daydream.",
-        "Disagree a little: Occasionally daydream.",
-        "Neither agree nor disagree: Daydream sometimes.",
-        "Agree a little: Often find yourself daydreaming.",
-        "Agree strongly: Frequently lost in daydreams.",
+        "Rarely daydream. - Disagree strongly",
+        "Occasionally daydream. - Disagree a little",
+        "Daydream sometimes. - Neither agree nor disagree",
+        "Often find yourself daydreaming. - Agree a little",
+        "Frequently lost in daydreams. - Agree strongly",
       ],
     },
     {
@@ -545,11 +545,11 @@ export const story = {
       imagePrompt:
         "A person eagerly participating in a painting or creative activity.",
       answers: [
-        "Disagree strongly: Not interested at all.",
-        "Disagree a little: Mildly interested.",
-        "Neither agree nor disagree: Somewhat interested.",
-        "Agree a little: Quite interested.",
-        "Agree strongly: Very passionate and excited about it.",
+        "Not interested at all. - Disagree strongly",
+        "Mildly interested. - Disagree a little",
+        "Somewhat interested. - Neither agree nor disagree",
+        "Quite interested. - Agree a little",
+        "Very passionate and excited about it. - Agree strongly",
       ],
     },
     {
@@ -558,11 +558,11 @@ export const story = {
       imagePrompt:
         "A person actively working together with others on a collaborative project.",
       answers: [
-        "Disagree strongly: Prefer to work alone and avoid cooperation.",
-        "Disagree a little: Reluctantly cooperate.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Cooperate well with some effort.",
-        "Agree strongly: Enjoy and actively engage in teamwork.",
+        "Prefer to work alone and avoid cooperation. - Disagree strongly",
+        "Reluctantly cooperate. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Cooperate well with some effort. - Agree a little",
+        "Enjoy and actively engage in teamwork. - Agree strongly",
       ],
     },
     {
@@ -572,11 +572,11 @@ export const story = {
       imagePrompt:
         "A person trying to focus on work while being distracted by various things.",
       answers: [
-        "Disagree strongly: Stay very focused and undistracted.",
-        "Disagree a little: Get a bit distracted but manage.",
-        "Neither agree nor disagree: Feel neutral.",
-        "Agree a little: Find yourself often distracted.",
-        "Agree strongly: Constantly get distracted by small things.",
+        "Stay very focused and undistracted. - Disagree strongly",
+        "Get a bit distracted but manage. - Disagree a little",
+        "Feel neutral. - Neither agree nor disagree",
+        "Find yourself often distracted. - Agree a little",
+        "Constantly get distracted by small things. - Agree strongly",
       ],
     },
     {
@@ -586,11 +586,11 @@ export const story = {
       imagePrompt:
         "A person excitedly preparing to attend an artistic or cultural event.",
       answers: [
-        "Disagree strongly: Not interested at all.",
-        "Disagree a little: Mildly interested.",
-        "Neither agree nor disagree: Somewhat interested.",
-        "Agree a little: Quite interested.",
-        "Agree strongly: Very passionate and excited about it.",
+        "Not interested at all. - Disagree strongly",
+        "Mildly interested. - Disagree a little",
+        "Somewhat interested. - Neither agree nor disagree",
+        "Quite interested. - Agree a little",
+        "Very passionate and excited about it. - Agree strongly",
       ],
     },
   ],

@@ -163,8 +163,11 @@ const Page = () => {
       <div>
         {!showResult ? (
           <div className="quiz-container">
-            <img src={`/images/${currentId}.webp`} alt={imagePrompt} />
-            <div>
+            <img
+              src={`https://pollinations.ai/p/${imagePrompt}`}
+              alt={imagePrompt}
+            />
+            <div className="right-section">
               <h3>{scenario}</h3>
               {answers.map((answer, idx) => (
                 <li
@@ -190,7 +193,7 @@ const Page = () => {
             </div>
           </div>
         ) : (
-          <div className="quiz-container">
+          <div className="result-container">
             <h3>Personality Insights</h3>
             <div className="personality-list">{personalityList}</div>
 
