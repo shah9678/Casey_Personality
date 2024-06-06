@@ -164,28 +164,30 @@ const Page = () => {
         {!showResult ? (
           <div className="quiz-container">
             <img src={`/images/${currentId}.webp`} alt={imagePrompt} />
-            <h3>{scenario}</h3>
-            {answers.map((answer, idx) => (
-              <li
-                key={idx}
-                onClick={() => onAnswerSelected(answer, idx)}
-                className={
-                  selectedAnswerIndex === idx ? "li-selected" : "li-hover"
-                }
-              >
-                <span>{answer}</span>
-              </li>
-            ))}
-            {checked ? (
-              <button onClick={nextRound} className="btn">
-                {activeRound === rounds.length - 1 ? "Finish" : "Next"}
-              </button>
-            ) : (
-              <button onClick={nextRound} disabled className="btn-disabled">
-                {" "}
-                {activeRound === rounds.length - 1 ? "Finish" : "Next"}
-              </button>
-            )}
+            <div>
+              <h3>{scenario}</h3>
+              {answers.map((answer, idx) => (
+                <li
+                  key={idx}
+                  onClick={() => onAnswerSelected(answer, idx)}
+                  className={
+                    selectedAnswerIndex === idx ? "li-selected" : "li-hover"
+                  }
+                >
+                  <span>{answer}</span>
+                </li>
+              ))}
+              {checked ? (
+                <button onClick={nextRound} className="btn">
+                  {activeRound === rounds.length - 1 ? "Finish" : "Next"}
+                </button>
+              ) : (
+                <button onClick={nextRound} disabled className="btn-disabled">
+                  {" "}
+                  {activeRound === rounds.length - 1 ? "Finish" : "Next"}
+                </button>
+              )}
+            </div>
           </div>
         ) : (
           <div className="quiz-container">

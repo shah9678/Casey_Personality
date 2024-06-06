@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { story } from "../data.js";
+import React, { useState, useEffect } from "react";
+import { story } from "../../data/44question-converted";
 
 const Page = () => {
   const [activeRound, setActiveRound] = useState(0);
@@ -135,6 +135,27 @@ const Page = () => {
     });
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key >= "1" && event.key <= "5") {
+        const answerIndex = parseInt(event.key, 10) - 1;
+        if (answerIndex >= 0 && answerIndex < answers.length) {
+          onAnswerSelected(answerIndex);
+        }
+      } else if (event.key === "Enter" && selectedAnswerIndex !== null) {
+        nextRound();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [answers, onAnswerSelected, selectedAnswerIndex, nextRound]);
+
+  console.log(facetScores, "facetScores");
+
   return (
     <div className="container">
       <h1>Personality Quiz</h1>
@@ -147,28 +168,32 @@ const Page = () => {
       <div>
         {!showResult ? (
           <div className="quiz-container">
-            <img src={`/images/${currentId}.webp`} alt={imagePrompt} />
-            <h3>{scenario}</h3>
-            <ul>
-              {answers.map((answer, idx) => (
-                <li
-                  key={idx}
-                  onClick={() => onAnswerSelected(idx)}
-                  className={
-                    selectedAnswerIndex === idx ? "li-selected" : "li-hover"
-                  }
-                >
-                  {answer}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={nextRound}
-              className={selectedAnswerIndex !== null ? "btn" : "btn-disabled"}
-              disabled={selectedAnswerIndex === null}
-            >
-              {activeRound === rounds.length - 1 ? "Finish" : "Next"}
-            </button>
+            <img src={`/44-question/${currentId}.webp`} alt={imagePrompt} />
+            <div>
+              <h3>{scenario}</h3>
+              <ul>
+                {answers.map((answer, idx) => (
+                  <li
+                    key={idx}
+                    onClick={() => onAnswerSelected(idx)}
+                    className={
+                      selectedAnswerIndex === idx ? "li-selected" : "li-hover"
+                    }
+                  >
+                    <kbd>{idx + 1}</kbd> {answer}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={nextRound}
+                className={
+                  selectedAnswerIndex !== null ? "btn" : "btn-disabled"
+                }
+                disabled={selectedAnswerIndex === null}
+              >
+                {activeRound === rounds.length - 1 ? "Finish" : "Next"}
+              </button>
+            </div>
           </div>
         ) : (
           <ResultComponent
