@@ -182,3 +182,55 @@ li {
   margin-top: 2rem;
   border-radius: 4px;
 }
+
+button.btn-outlined {
+  background-color: transparent;
+  border: 2px solid #f8f8f8;
+  color: #f8f8f8;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button.btn-outlined:hover {
+  background-color: #f8f8f8;
+  color: #000925;
+}
+
+button.btn-secondary {
+  background-color: #08405348;
+  color: #f8f8f8;
+  transition: background-color 0.3s;
+}
+
+button.btn-secondary:hover {
+  background-color: #131313d3;
+}
+
+.genreGrid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 20px;
+
+  & > a {
+    text-decoration: none;
+  }
+}
+
+.genreCard {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 2rem;
+  color: black;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genreCard.gradient {
+  background: linear-gradient(to right, #4a90e2, #5f2c82);
+  color: white;
+}
+
+.genreCard.secondary {
+  background: linear-gradient(to right, #f38181, #bc5c18);
+  color: white;
+}
