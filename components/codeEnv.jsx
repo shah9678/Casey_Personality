@@ -36,14 +36,13 @@ import {
   SandpackTests,
 } from "@codesandbox/sandpack-react";
 
-const CodeEnv = () => {
-  const [topic, setTopic] = useState("");
-  const [goal, setGoal] = useState("");
+const CodeEnv = ({ personality }) => {
+  const [topic, setTopic] = useState("Python");
+  const [goal, setGoal] = useState("Hello World");
   const [code, setCode] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [topicInfo, setTopicInfo] = useState("");
-  const [personality, setPersonality] = useState("openness");
   const [theme, setTheme] = useState(getPersonalityTheme("openness"));
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [output, setOutput] = useState("");
@@ -57,10 +56,6 @@ const CodeEnv = () => {
   const [currentTest, setCurrentTest] = useState("");
   const [testFile, setTestFile] = useState("");
   const [genericFunction, setGenericFunction] = useState("");
-
-  useEffect(() => {
-    setTheme(getPersonalityTheme(personality));
-  }, [personality]);
 
   useEffect(() => {
     if (currentChallenge < challenges.length) {
@@ -186,23 +181,7 @@ const CodeEnv = () => {
                 <Label htmlFor="personality" className={theme.label}>
                   Personality
                 </Label>
-                <Select
-                  value={personality}
-                  onValueChange={(value) => setPersonality(value)}
-                >
-                  <SelectTrigger className="text-black border border-gray-300">
-                    <SelectValue placeholder="Select a personality" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="openness">Openness</SelectItem>
-                    <SelectItem value="conscientiousness">
-                      Conscientiousness
-                    </SelectItem>
-                    <SelectItem value="extraversion">Extraversion</SelectItem>
-                    <SelectItem value="agreeableness">Agreeableness</SelectItem>
-                    <SelectItem value="neuroticism">Neuroticism</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Input id="goal" value={personality} className={theme.input} />
               </div>
               <Button onClick={startSession} className={theme.button}>
                 Start Session

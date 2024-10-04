@@ -4,13 +4,13 @@ export default function Home() {
   return (
     <main>
       <div className="container">
-        <h1>Quiz App</h1>
+        <h1>Personality</h1>
         <div className="genreGrid">
-          <Link className="genreCard gradient" href="/quiz">
+          {/* <Link className="genreCard gradient" href="/quiz">
             AI Personality analyse - Quiz
-          </Link>
+          </Link> */}
           <Link className="genreCard secondary" href="/44-question">
-            44-item Big Five Inventory - Quiz
+            Start Quiz
           </Link>
         </div>
       </div>

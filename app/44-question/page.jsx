@@ -1,139 +1,65 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { story } from "../../data/44question-converted";
+import { useRouter } from "next/navigation";
+
+import { Bar } from "react-chartjs-2";
 import Link from "next/link";
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Page = () => {
   const [activeRound, setActiveRound] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [checked, setChecked] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [personalityResult, setPersonalityResult] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [personalityScores, setPersonalityScores] = useState({
-    Extraversion: 0,
-    Agreeableness: 0,
-    Conscientiousness: 0,
-    Neuroticism: 0,
-    Openness: 0,
-  });
+  const router = useRouter();
 
-  const facetScores = {
-    Extraversion: {
-      Gregariousness: 0,
-      Assertiveness: 0,
-      Activity: 0,
-      "Excitement-seeking": 0,
-      "Positive emotions": 0,
-      Warmth: 0,
-    },
-    Agreeableness: {
-      Trust: 0,
-      Straightforwardness: 0,
-      Altruism: 0,
-      Compliance: 0,
-      Modesty: 0,
-      "Tender-mindedness": 0,
-    },
-    Conscientiousness: {
-      Competence: 0,
-      Order: 0,
-      Dutifulness: 0,
-      "Achievement striving": 0,
-      "Self-discipline": 0,
-      Deliberation: 0,
-    },
-    Neuroticism: {
-      Anxiety: 0,
-      "Angry hostility": 0,
-      Depression: 0,
-      "Self-consciousness": 0,
-      Impulsiveness: 0,
-      Vulnerability: 0,
-    },
-    Openness: {
-      Ideas: 0,
-      Fantasy: 0,
-      Aesthetics: 0,
-      Actions: 0,
-      Feelings: 0,
-      Values: 0,
-    },
-  };
-
-  const { rounds } = story;
+  const rounds = story.rounds;
   const { scenario, answers, imagePrompt, id: currentId } = rounds[activeRound];
 
-  const scoring = {
-    Extraversion: [1, 6, 11, 16, 21, 26, 31, 36],
-    Agreeableness: [2, 7, 12, 17, 22, 27, 32, 37, 42],
-    Conscientiousness: [3, 8, 13, 18, 23, 28, 33, 38, 43],
-    Neuroticism: [4, 9, 14, 19, 24, 29, 34, 39],
-    Openness: [5, 10, 15, 20, 25, 30, 35, 40, 41, 44],
-  };
-
-  const reverseScores = {
-    Extraversion: [6, 21, 31],
-    Agreeableness: [2, 12, 27, 37],
-    Conscientiousness: [8, 18, 23, 43],
-    Neuroticism: [9, 24, 34],
-    Openness: [35, 41],
-  };
-
-  const calculateScores = () => {
-    const scores = {
-      Extraversion: 0,
-      Agreeableness: 0,
-      Conscientiousness: 0,
-      Neuroticism: 0,
-      Openness: 0,
-    };
-
-    userAnswers.forEach(({ id, selectedAnswerIndex }) => {
-      const score = selectedAnswerIndex + 1;
-
-      Object.keys(scoring).forEach((trait) => {
-        if (scoring[trait].includes(id)) {
-          if (reverseScores[trait].includes(id)) {
-            scores[trait] += 6 - score; // reverse scoring
-          } else {
-            scores[trait] += score;
-          }
-        }
-      });
+  const onAnswerSelected = (answer, idx) => {
+    setChecked(true);
+    setSelectedAnswerIndex(idx);
+    setSelectedAnswer(answer);
+    // Save the selected answer for the current round
+    setUserAnswers((prev) => {
+      const updatedAnswers = [...prev];
+      updatedAnswers[activeRound] = { scenario, selectedAnswer: answer };
+      return updatedAnswers;
     });
-
-    setPersonalityScores(scores);
-    setShowResult(true);
   };
 
-  const onAnswerSelected = (answerIndex) => {
-    setSelectedAnswerIndex(answerIndex);
-    setUserAnswers((prev) => [
-      ...prev,
-      { id: rounds[activeRound].id, selectedAnswerIndex: answerIndex },
-    ]);
-  };
-
-  const nextRound = () => {
+  const nextRound = async () => {
+    setSelectedAnswerIndex(null);
+    setChecked(false);
     if (activeRound === rounds.length - 1) {
-      calculateScores();
+      const result = await query(userAnswers);
+      setPersonalityResult(result[0]);
+      setShowResult(true);
     } else {
       setActiveRound((prev) => prev + 1);
-      setSelectedAnswerIndex(null);
     }
-  };
-
-  const restartQuiz = () => {
-    setActiveRound(0);
-    setSelectedAnswerIndex(null);
-    setShowResult(false);
-    setUserAnswers([]);
-    setPersonalityScores({
-      Extraversion: 0,
-      Agreeableness: 0,
-      Conscientiousness: 0,
-      Neuroticism: 0,
-      Openness: 0,
-    });
   };
 
   useEffect(() => {
@@ -155,11 +81,130 @@ const Page = () => {
     };
   }, [answers, onAnswerSelected, selectedAnswerIndex, nextRound]);
 
-  console.log(facetScores, "facetScores");
+  const personalityList = personalityResult
+    ? personalityResult.map((item, index) => {
+        const traitNames = [
+          "Extroversion",
+          "Neuroticism",
+          "Agreeableness",
+          "Conscientiousness",
+          "Openness",
+        ];
+        const traitDescriptions = [
+          "How outgoing and social you are.",
+          "How much you experience negative emotions.",
+          "How kind and cooperative you are.",
+          "How organized and responsible you are.",
+          "How open you are to trying new things and thinking creatively.",
+        ];
+        return (
+          <div key={index} className="trait-item">
+            <div className="trait-lable">
+              <span className="trait-name">{traitNames[index]}</span>
+              <span className="trait-description">
+                {traitDescriptions[index]}
+              </span>
+            </div>
+            <span
+              className="trait-value"
+              style={{ width: `${item.score.toFixed(2) * 100}%` }}
+            >
+              {(item.score.toFixed(2) * 100).toFixed(0)}%
+            </span>
+          </div>
+        );
+      })
+    : null;
+
+  async function query(data) {
+    const firstPersonStatements = data.map((round) => {
+      const scenario = round.scenario;
+      const selectedAnswer = round.selectedAnswer;
+      return `Senario : ${scenario} ; Answer :${selectedAnswer}  `;
+    });
+
+    const statement = firstPersonStatements.join(" ");
+
+    const apiEndpointGroq = "https://api.groq.com/openai/v1/chat/completions";
+    const headersGroq = {
+      Authorization:
+        "Bearer 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",
+      "Content-Type": "application/json",
+    };
+
+    const requestDataGroq = {
+      model: "llama3-70b-8192",
+      messages: [
+        {
+          role: "system",
+          content:
+            "Transform the provided scenarios and answers into a single first-person statement. nad give me a very short description of it. like in three lines",
+        },
+        { role: "user", content: `${statement}` },
+      ],
+    };
+
+    console.log(requestDataGroq, "requestDataGroq");
+
+    const responseGroq = await fetch(apiEndpointGroq, {
+      method: "POST",
+      headers: headersGroq,
+      body: JSON.stringify(requestDataGroq),
+    });
+
+    const transformedStatement = await responseGroq.json();
+    const firstPersonStatement =
+      transformedStatement.choices[0].message.content;
+
+    console.log(firstPersonStatement, "responseGroq");
+
+    const apiEndpointBert =
+      "https://api-inference.huggingface.co/models/Minej/bert-base-personality";
+    const headersBert = {
+      Authorization: `Bearer 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`,
+    };
+
+    const responseBert = await fetch(apiEndpointBert, {
+      headers: headersBert,
+      method: "POST",
+      body: JSON.stringify({ inputs: firstPersonStatement }),
+    });
+
+    const resultBert = await responseBert.json();
+    console.log(resultBert, "resultBert");
+
+    const dominantTraitLabel = resultBert[0][0].label; // Get the label of the first element
+    console.log(dominantTraitLabel, "fas");
+    let dominantTraitName;
+
+    switch (dominantTraitLabel) {
+      case "LABEL_0":
+        dominantTraitName = "Extroversion";
+        break;
+      case "LABEL_1":
+        dominantTraitName = "Neuroticism";
+        break;
+      case "LABEL_2":
+        dominantTraitName = "Agreeableness";
+        break;
+      case "LABEL_3":
+        dominantTraitName = "Conscientiousness";
+        break;
+      case "LABEL_4":
+        dominantTraitName = "Openness";
+        break;
+      default:
+        dominantTraitName = "Unknown"; // Handle unexpected labels
+    }
+
+    router.push(`/code?personality=${dominantTraitName}`);
+
+    return resultBert;
+  }
 
   return (
     <div className="container">
-      <h1>44-item Big Five Inventory - Quiz</h1>
+      <h1>AI Personality analyse - Quiz</h1>
       <div>
         <h2>
           Round: {activeRound + 1}
@@ -175,132 +220,40 @@ const Page = () => {
             />
             <div className="right-section">
               <h3>{scenario}</h3>
-              <ul>
+              <div className="">
                 {answers.map((answer, idx) => (
                   <li
                     key={idx}
-                    onClick={() => onAnswerSelected(idx)}
+                    onClick={() => onAnswerSelected(answer, idx)}
                     className={
                       selectedAnswerIndex === idx ? "li-selected" : "li-hover"
                     }
                   >
-                    <kbd>{idx + 1}</kbd> {answer}
+                    <span>{answer}</span>
                   </li>
                 ))}
-              </ul>
-              <button
-                onClick={nextRound}
-                className={
-                  selectedAnswerIndex !== null ? "btn" : "btn-disabled"
-                }
-                disabled={selectedAnswerIndex === null}
-              >
-                {activeRound === rounds.length - 1 ? "Finish" : "Next"}
-              </button>
+              </div>
+              {checked ? (
+                <button onClick={nextRound} className="btn">
+                  {activeRound === rounds.length - 1 ? "Finish" : "Next"}
+                </button>
+              ) : (
+                <button onClick={nextRound} disabled className="btn-disabled">
+                  {" "}
+                  {activeRound === rounds.length - 1 ? "Finish" : "Next"}
+                </button>
+              )}
             </div>
           </div>
         ) : (
-          <ResultComponent
-            scores={personalityScores}
-            facets={facetScores}
-            restartQuiz={restartQuiz}
-          />
+          <div className="result-container">
+            <h3>Personality Insights</h3>
+            <div className="personality-list">{personalityList}</div>
+
+            <button onClick={() => window.location.reload()}>Restart</button>
+          </div>
         )}
       </div>
-    </div>
-  );
-};
-
-const ResultComponent = ({ scores, facets, restartQuiz }) => {
-  const traitDescriptions = {
-    Extraversion: "How outgoing and social you are.",
-    Agreeableness: "How kind and cooperative you are.",
-    Conscientiousness: "How organized and responsible you are.",
-    Neuroticism: "How much you experience negative emotions.",
-    Openness: "How open you are to trying new things and thinking creatively.",
-  };
-
-  const facetDescriptions = {
-    Extraversion: {
-      Gregariousness: "How sociable you are.",
-      Assertiveness: "How forceful you are.",
-      Activity: "How energetic you are.",
-      "Excitement-seeking": "How adventurous you are.",
-      "Positive emotions": "How enthusiastic you are.",
-      Warmth: "How outgoing you are.",
-    },
-    Agreeableness: {
-      Trust: "How forgiving you are.",
-      Straightforwardness: "How undemanding you are.",
-      Altruism: "How warm you are.",
-      Compliance: "How compliant you are.",
-      Modesty: "How modest you are.",
-      "Tender-mindedness": "How sympathetic you are.",
-    },
-    Conscientiousness: {
-      Competence: "How efficient you are.",
-      Order: "How organized you are.",
-      Dutifulness: "How careful you are.",
-      "Achievement striving": "How thorough you are.",
-      "Self-discipline": "How disciplined you are.",
-      Deliberation: "How impulsive you are.",
-    },
-    Neuroticism: {
-      Anxiety: "How tense you are.",
-      "Angry hostility": "How irritable you are.",
-      Depression: "How contented you are.",
-      "Self-consciousness": "How shy you are.",
-      Impulsiveness: "How moody you are.",
-      Vulnerability: "How self-confident you are.",
-    },
-    Openness: {
-      Ideas: "How curious you are.",
-      Fantasy: "How imaginative you are.",
-      Aesthetics: "How artistic you are.",
-      Actions: "How wide your interests are.",
-      Feelings: "How excitable you are.",
-      Values: "How unconventional you are.",
-    },
-  };
-
-  return (
-    <div className="result-container">
-      <h3>Personality Insights</h3>
-      <div className="personality-list">
-        {Object.keys(scores).map((trait, index) => (
-          <div key={index} className="trait-item">
-            <div className="trait-label">
-              <span className="trait-name">{trait}</span>
-              <span className="trait-description">
-                {traitDescriptions[trait]}
-              </span>
-            </div>
-            <span className="trait-value">
-              {((scores[trait] / (story.rounds.length * 5)) * 100).toFixed(0)}%
-            </span>
-            <div className="facet-list">
-              {Object.keys(facetDescriptions[trait]).map((facet, idx) => (
-                <div key={idx} className="facet-item">
-                  <div className="facet-label">
-                    <span className="facet-name">{facet}</span>
-                    <span className="facet-description">
-                      {facetDescriptions[trait][facet]}
-                    </span>
-                  </div>
-                  <span className="facet-value">
-                    {(
-                      (facets[trait][facet] / (story.rounds.length * 5)) *
-                      100
-                    ).toFixed(0)}
-                    %
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-      <button onClick={restartQuiz}>Restart</button>
     </div>
   );
 };
