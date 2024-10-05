@@ -43,7 +43,7 @@ const CodeEnv = ({ personality }) => {
   const [feedback, setFeedback] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [topicInfo, setTopicInfo] = useState("");
-  const [theme, setTheme] = useState(getPersonalityTheme("openness"));
+  const [theme, setTheme] = useState(getPersonalityTheme("neuroticism"));
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [output, setOutput] = useState("");
   const [htmlOutput, setHtmlOutput] = useState("");
@@ -204,7 +204,7 @@ const CodeEnv = ({ personality }) => {
                 <SandpackProvider
                   template="vanilla"
                   files={{
-                    "/index.js": `
+                    "/main.py": `
 // Generic function
 ${genericFunction}
 

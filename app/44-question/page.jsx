@@ -173,31 +173,31 @@ const Page = () => {
     const resultBert = await responseBert.json();
     console.log(resultBert, "resultBert");
 
-    const dominantTraitLabel = resultBert[0][0].label; // Get the label of the first element
-    console.log(dominantTraitLabel, "fas");
-    let dominantTraitName;
+    // const dominantTraitLabel = resultBert[0].label; // Get the label of the first element
+    // console.log(dominantTraitLabel, "fas");
+    // let dominantTraitName;
 
-    switch (dominantTraitLabel) {
-      case "LABEL_0":
-        dominantTraitName = "Extroversion";
-        break;
-      case "LABEL_1":
-        dominantTraitName = "Neuroticism";
-        break;
-      case "LABEL_2":
-        dominantTraitName = "Agreeableness";
-        break;
-      case "LABEL_3":
-        dominantTraitName = "Conscientiousness";
-        break;
-      case "LABEL_4":
-        dominantTraitName = "Openness";
-        break;
-      default:
-        dominantTraitName = "Unknown"; // Handle unexpected labels
-    }
+    // switch (dominantTraitLabel) {
+    //   case "LABEL_0":
+    //     dominantTraitName = "Extroversion";
+    //     break;
+    //   case "LABEL_1":
+    //     dominantTraitName = "Neuroticism";
+    //     break;
+    //   case "LABEL_2":
+    //     dominantTraitName = "Agreeableness";
+    //     break;
+    //   case "LABEL_3":
+    //     dominantTraitName = "Conscientiousness";
+    //     break;
+    //   case "LABEL_4":
+    //     dominantTraitName = "Openness";
+    //     break;
+    //   default:
+    //     dominantTraitName = "Unknown"; // Handle unexpected labels
+    // }
 
-    router.push(`/code?personality=${dominantTraitName}`);
+    // router.push(`/code?personality=${dominantTraitName}`);
 
     return resultBert;
   }
