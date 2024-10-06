@@ -285,10 +285,10 @@ ${code}`,
               </CardContent>
             </Card>
             <Card className={`shadow-lg`}>
-              <CardHeader>
-                <CardTitle className={`flex items-center ${theme.text}`}>
-                  <Sparkles className={`mr-2 ${theme.accent}`} />
-                  Feedback
+              <CardHeader className="text-white bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-xl mb-8 mx-2 mt-2">
+                <CardTitle className={`flex items-center text-white`}>
+                  <Sparkles className={`mr-2 text-white`} />
+                  Casey
                 </CardTitle>
               </CardHeader>
               <CardContent>
