@@ -31,8 +31,10 @@ const Page = () => {
   const [checked, setChecked] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [showResult, setShowResult] = useState(false);
-  const [personalityResult, setPersonalityResult] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [finalResult, setFinalResult] = useState(null);
+  const [dominantTrait, setDominantTrait] = useState("");
+  const [timer, setTimer] = useState(15);
   const router = useRouter();
 
   const rounds = story.rounds;
@@ -55,7 +57,6 @@ const Page = () => {
     setChecked(false);
     if (activeRound === rounds.length - 1) {
       const result = await query(userAnswers);
-      setPersonalityResult(result[0]);
       setShowResult(true);
     } else {
       setActiveRound((prev) => prev + 1);
@@ -67,7 +68,7 @@ const Page = () => {
       if (event.key >= "1" && event.key <= "5") {
         const answerIndex = parseInt(event.key, 10) - 1;
         if (answerIndex >= 0 && answerIndex < answers.length) {
-          onAnswerSelected(answerIndex);
+          onAnswerSelected(answers[answerIndex], answerIndex);
         }
       } else if (event.key === "Enter" && selectedAnswerIndex !== null) {
         nextRound();
@@ -79,42 +80,52 @@ const Page = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [answers, onAnswerSelected, selectedAnswerIndex, nextRound]);
+  }, [answers, selectedAnswerIndex]);
 
-  const personalityList = personalityResult
-    ? personalityResult.map((item, index) => {
-        const traitNames = [
-          "Extroversion",
-          "Neuroticism",
-          "Agreeableness",
-          "Conscientiousness",
-          "Openness",
-        ];
-        const traitDescriptions = [
-          "How outgoing and social you are.",
-          "How much you experience negative emotions.",
-          "How kind and cooperative you are.",
-          "How organized and responsible you are.",
-          "How open you are to trying new things and thinking creatively.",
-        ];
+  useEffect(() => {
+    let interval;
+    if (showResult && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      router.push(`/code?personality=${dominantTrait}`);
+    }
+    return () => clearInterval(interval);
+  }, [showResult, timer, dominantTrait, router]);
+
+  const personalityList = finalResult
+    ? finalResult.map((item, index) => {
         return (
           <div key={index} className="trait-item">
             <div className="trait-lable">
-              <span className="trait-name">{traitNames[index]}</span>
+              <span className="trait-name">{item.label}</span>
               <span className="trait-description">
-                {traitDescriptions[index]}
+                {getTraitDescription(item.label)}
               </span>
             </div>
             <span
               className="trait-value"
-              style={{ width: `${item.score.toFixed(2) * 100}%` }}
+              style={{ width: `${item.score * 100}%` }}
             >
-              {(item.score.toFixed(2) * 100).toFixed(0)}%
+              {(item.score * 100).toFixed(0)}%
             </span>
           </div>
         );
       })
     : null;
+
+  function getTraitDescription(trait) {
+    const descriptions = {
+      Extroversion: "How outgoing and social you are.",
+      Neuroticism: "How much you experience negative emotions.",
+      Agreeableness: "How kind and cooperative you are.",
+      Conscientiousness: "How organized and responsible you are.",
+      Openness:
+        "How open you are to trying new things and thinking creatively.",
+    };
+    return descriptions[trait] || "";
+  }
 
   async function query(data) {
     const firstPersonStatements = data.map((round) => {
@@ -158,49 +169,30 @@ const Page = () => {
 
     console.log(firstPersonStatement, "responseGroq");
 
-    const apiEndpointBert =
-      "https://api-inference.huggingface.co/models/Minej/bert-base-personality";
-    const headersBert = {
-      Authorization: `Bearer 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`,
-    };
-
-    const responseBert = await fetch(apiEndpointBert, {
-      headers: headersBert,
+    const personalityResponse = await fetch("/api/personality", {
       method: "POST",
-      body: JSON.stringify({ inputs: firstPersonStatement }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ statement: firstPersonStatement }),
     });
+    const { rawOutput, dominantTraitName, confidences } =
+      await personalityResponse.json();
 
-    const resultBert = await responseBert.json();
-    console.log(resultBert, "resultBert");
+    console.log("Raw output:", rawOutput);
+    console.log("Dominant trait:", dominantTraitName);
+    console.log("Confidences:", confidences);
 
-    // const dominantTraitLabel = resultBert[0].label; // Get the label of the first element
-    // console.log(dominantTraitLabel, "fas");
-    // let dominantTraitName;
+    // Set the final result and dominant trait
+    setFinalResult(confidences);
+    setDominantTrait(dominantTraitName);
 
-    // switch (dominantTraitLabel) {
-    //   case "LABEL_0":
-    //     dominantTraitName = "Extroversion";
-    //     break;
-    //   case "LABEL_1":
-    //     dominantTraitName = "Neuroticism";
-    //     break;
-    //   case "LABEL_2":
-    //     dominantTraitName = "Agreeableness";
-    //     break;
-    //   case "LABEL_3":
-    //     dominantTraitName = "Conscientiousness";
-    //     break;
-    //   case "LABEL_4":
-    //     dominantTraitName = "Openness";
-    //     break;
-    //   default:
-    //     dominantTraitName = "Unknown"; // Handle unexpected labels
-    // }
-
-    // router.push(`/code?personality=${dominantTraitName}`);
-
-    return resultBert;
+    return confidences;
   }
+
+  const navigateToCodeEnv = () => {
+    router.push(`/code?personality=${dominantTrait}`);
+  };
 
   return (
     <div className="container">
@@ -239,7 +231,6 @@ const Page = () => {
                 </button>
               ) : (
                 <button onClick={nextRound} disabled className="btn-disabled">
-                  {" "}
                   {activeRound === rounds.length - 1 ? "Finish" : "Next"}
                 </button>
               )}
@@ -249,8 +240,11 @@ const Page = () => {
           <div className="result-container">
             <h3>Personality Insights</h3>
             <div className="personality-list">{personalityList}</div>
-
-            <button onClick={() => window.location.reload()}>Restart</button>
+            <p>Your dominant trait is: {dominantTrait}</p>
+            <p>Redirecting to code environment in {timer} seconds...</p>
+            <button onClick={navigateToCodeEnv} className="btn">
+              Go to Code Environment Now
+            </button>
           </div>
         )}
       </div>
